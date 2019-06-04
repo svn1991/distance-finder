@@ -1,0 +1,11 @@
+form {
+  display: block;
+}
+
+form div {
+  margin-bottom: 30px;
+}
+form #start-point,
+form #noOfPsgr {
+  margin-right: 20px;
+}
