@@ -9,3 +9,36 @@ form #start-point,
 form #noOfPsgr {
   margin-right: 20px;
 }
+
+form .search-input-wrapper {
+  position: relative;
+}
+
+form .dropdown-content {
+  display: none;
+  position: absolute;
+  background: lightgray;
+  left: 0;
+  width: 161px;
+  max-height: 250px;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+}
+
+form .dropdown-content.show {
+  display: block;
+}
+
+form .dropdown-options {
+  margin: 0;
+  padding: 2px 0 2px 5px;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid gray;
+}
+
+form .dropdown-options:hover {
+  background-color: #e9eeeb;
+}
