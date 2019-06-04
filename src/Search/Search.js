@@ -155,14 +155,22 @@ class Search extends React.Component {
     this.setState({date: event.target.value});
   }
 
-  handleSubmit() {
+  handleSubmit(event) {
+    event.preventDefault();
     const state = this.state;
-    this.props.sendUserSelections(
-      state.start,
-      state.end,
-      state.passengers,
-      state.date
-    );
+    const errorMsg = ReactDOM.findDOMNode(this.refs.selectPlace);
+
+    if (state.address.includes(state.start) && state.address.includes(state.end)) {
+      this.props.sendUserSelections(
+        state.start,
+        state.end,
+        state.passengers,
+        state.date
+      );
+      errorMsg.classList.remove("show");
+    } else {
+      errorMsg.classList.add("show");
+    }
     return false;
   }
 
@@ -170,7 +178,8 @@ class Search extends React.Component {
     const state = this.state;
     return (
       <div>
-        <form className="search-form" onSubmit={this.handleSubmit}>
+        <form className="search-form" onSubmit={(e) => this.handleSubmit(e)}>
+          <div ref="selectPlace" className="select-place">Please select starting and ending points from drop down.</div>
           <div>
             <label htmlFor="start-point">Start Point: </label>
             <span className = "start-point-wrapper search-input-wrapper">              

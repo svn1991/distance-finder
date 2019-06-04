@@ -19,7 +19,6 @@ class App extends React.Component {
   }
 
   getUserValues(start,end, psgr, date) {
-    console.log('executing form')
     this.setState({
       startPoint: start,
       endPoint: end,

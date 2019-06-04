@@ -5,6 +5,17 @@ form {
 form div {
   margin-bottom: 30px;
 }
+
+form .select-place {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+form .select-place.show {
+  display: block;
+}
+
 form #start-point,
 form #noOfPsgr {
   margin-right: 20px;
