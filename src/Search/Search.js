@@ -9,10 +9,10 @@ class Search extends React.Component {
     super(props);
 
     this.state = {
-      start: "",
-      end: "",
-      passengers: 1,
-      date: this.getCurrentDate(),
+      start: this.props.startPoint ? this.props.startPoint : "",
+      end: this.props.endPoint ? this.props.endPoint : "",
+      passengers: this.props.passengers ? this.props.passengers : 1,
+      date: this.props.date ? this.props.date : this.getCurrentDate(),
       address: address,
       filterAddress: address,
       showStartOptions: false,
@@ -155,11 +155,22 @@ class Search extends React.Component {
     this.setState({date: event.target.value});
   }
 
+  handleSubmit() {
+    const state = this.state;
+    this.props.sendUserSelections(
+      state.start,
+      state.end,
+      state.passengers,
+      state.date
+    );
+    return false;
+  }
+
   render() {
     const state = this.state;
     return (
       <div>
-        <form className="search-form">
+        <form className="search-form" onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="start-point">Start Point: </label>
             <span className = "start-point-wrapper search-input-wrapper">              

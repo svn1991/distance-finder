@@ -1,0 +1,8 @@
+.results-wrapper {
+  display: none;
+  margin: 30px;
+}
+
+.results-wrapper.show {
+  display: block;
+}
